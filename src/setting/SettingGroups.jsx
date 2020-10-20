@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, Grid, Typography } from '@material-ui/core'
 import GroupCard from './GroupCard';
 import axios from 'axios';
+import Setting from './Setting';
 
 
 
@@ -45,9 +46,16 @@ function SettingGroups (props) {
                 <GroupCard data={zeroData} selected={props.group_id == zeroData.id} handleGroup={(id) => props.handleGroup(id)} />
             </Grid>
             {
+                props.round == "first" ?
                 Object.values(groupData).map((val) => (
                     <Grid item xs={6}>
                         <GroupCard data={val} selected={props.group_id==val.id} handleGroup={(id)=>props.handleGroup(id)}/>
+                    </Grid>
+                ))
+                :
+                Object.values(groupData).filter((val)=>{return val.final}).map((val) => (
+                    <Grid item xs={6}>
+                        <GroupCard data={val} selected={props.group_id == val.id} handleGroup={(id) => props.handleGroup(id)} />
                     </Grid>
                 ))
             }

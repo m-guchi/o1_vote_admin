@@ -83,7 +83,7 @@ function SettingDetail (props) {
                                 label="投票チケット取得可"
                             />
                         </Grid>
-                        <SettingGroups group_id={props.setting.group_id} handleGroup={(id) => props.handleGroup(id)}/>
+                        <SettingGroups round={props.setting.round} group_id={props.setting.group_id} handleGroup={(id) => props.handleGroup(id)}/>
                     </React.Fragment>
                 }
             </Grid>
