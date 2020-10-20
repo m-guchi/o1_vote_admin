@@ -66,7 +66,12 @@ function Setting () {
         setDiffSetting(setting.ticket_accept == originSetting.ticket_accept)
     }
     const handleGroup = (id) => {
-        setSetting({ ...setting, group_id: id })
+        if(id==0){
+            setSetting({ ...setting, ticket_accept: false, group_id: id})
+            setDiffSetting(originSetting.ticket_accept)
+        }else{
+            setSetting({ ...setting, ticket_accept: true, group_id: id })
+        }
         setDiffSetting(id != originSetting.group_id)
     }
 

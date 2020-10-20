@@ -68,21 +68,22 @@ function SettingDetail (props) {
                     </Grid>
                     :
                     <React.Fragment>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} sm={6}>
                             <FormControlLabel
                                 control={
                                     <Switch
-                                        checked={Boolean(props.setting.ticket_accept)}
+                                        checked={Boolean(props.setting.ticket_accept) && props.setting.group_id != 0}
                                         onChange={props.handleChangeTicketAccept}
                                         name="ticket_accept"
                                         color="primary"
+                                        disabled={Boolean(props.setting.group_id == 0)}
                                         inputProps={{ 'aria-label': 'primary  checkbox' }}
                                     />
                                 }
                                 label="投票チケット取得可"
                             />
                         </Grid>
-                            <SettingGroups group_id={props.setting.group_id} handleGroup={(id) => props.handleGroup(id)}/>
+                        <SettingGroups group_id={props.setting.group_id} handleGroup={(id) => props.handleGroup(id)}/>
                     </React.Fragment>
                 }
             </Grid>

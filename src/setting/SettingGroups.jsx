@@ -33,8 +33,17 @@ function SettingGroups (props) {
         })
     }
 
+    const zeroData = {
+        id: 0,
+        no: 0,
+        name: '--表示なし--',
+    }
+
     return(
         <React.Fragment>
+            <Grid item xs={6}>
+                <GroupCard data={zeroData} selected={props.group_id == zeroData.id} handleGroup={(id) => props.handleGroup(id)} />
+            </Grid>
             {
                 Object.values(groupData).map((val) => (
                     <Grid item xs={6}>
