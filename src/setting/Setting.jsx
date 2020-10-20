@@ -15,15 +15,18 @@ const useStyles = makeStyles((theme) => ({
 
 function Setting () {
     const classes = useStyles();
+    const [originSetting, setOriginSetting] = useState([])
     const [setting, setSetting] = useState([])
+    const [diffSetting, setDiffSetting] = useState(false)
 
     useEffect(() => {
         fetchSetting()
-    },[])
+    }, [])
 
     const fetchSetting = () => {
         axios.post(process.env.REACT_APP_API_URL + 'get_status.php')
         .then(function (response) {
+            setOriginSetting(response.data.setting)
             setSetting(response.data.setting)
         })
         .catch(function (error) {
@@ -34,7 +37,8 @@ function Setting () {
     const postSetting = () => {
         axios.post(process.env.REACT_APP_API_URL + 'post_status.php',setting)
         .then(function (response) {
-            console.log(response.data)
+            setOriginSetting(setting)
+            setDiffSetting(false)
         })
         .catch(function (error) {
             console.error(error)
@@ -43,21 +47,27 @@ function Setting () {
 
     const handleRunning = () => {
         setSetting({...setting, running: !setting.running})
+        setDiffSetting(setting.running == originSetting.running)
     }
     const handleChangeRound = (event) => {
-        setSetting({ ...setting, round: event.target.value });
+        setSetting({ ...setting, round: event.target.value })
+        setDiffSetting(event.target.value != originSetting.round)
     };
     const handleChangeVote = () => {
         setSetting({ ...setting, vote: !setting.vote })
+        setDiffSetting(setting.vote == originSetting.vote)
     }
     const handleChangeVoteAccept = () => {
         setSetting({ ...setting, vote_accept: !setting.vote_accept })
+        setDiffSetting(setting.vote_accept == originSetting.vote_accept)
     }
     const handleChangeTicketAccept = () => {
         setSetting({ ...setting, ticket_accept: !setting.ticket_accept })
+        setDiffSetting(setting.ticket_accept == originSetting.ticket_accept)
     }
     const handleGroup = (id) => {
         setSetting({ ...setting, group_id: id })
+        setDiffSetting(id != originSetting.group_id)
     }
 
     return(
@@ -80,7 +90,7 @@ function Setting () {
                     />
                 </Grid>
                 <Grid item xs={4}>
-                    <Button variant="contained" color='primary' onClick={postSetting}>
+                    <Button variant="contained" color='primary' onClick={postSetting} disabled={!diffSetting}>
                         公開
                     </Button>
                 </Grid>
