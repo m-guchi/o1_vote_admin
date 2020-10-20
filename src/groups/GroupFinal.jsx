@@ -30,7 +30,6 @@ function GroupFinal (props) {
             if(response.data.ok){
                 setChecked(response.data.data.final)
             }
-            console.log(response)
         })
         .catch(function (error) {
             console.error(error)
