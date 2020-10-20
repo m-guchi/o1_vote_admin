@@ -10,6 +10,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import HowToVoteIcon from '@material-ui/icons/HowToVote';
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
+import GroupIcon from '@material-ui/icons/Group';
 import SettingsIcon from '@material-ui/icons/Settings';
 
 import RoutePage from './RoutePage';
@@ -115,6 +116,7 @@ function Admin () {
         { link: '', title: 'ダッシュボード', icon: <DashboardIcon /> },
         { link: '/votes', title: '投票結果', icon: <HowToVoteIcon /> },
         { link: '/tickets', title: '投票チケット', icon: <ConfirmationNumberIcon /> },
+        { link: '/groups', title: '団体一覧', icon: <GroupIcon /> },
         { link: '/setting', title: '設定', icon: <SettingsIcon /> },
     ]
 
