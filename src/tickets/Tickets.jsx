@@ -86,11 +86,6 @@ function Tickets () {
                     </TableBody>
                 </Table>
             </TableContainer>
-            {/* <div>
-                1枚：{ticketsData[1]}<br/>
-                2枚：{ticketsData[2]}<br />
-                3枚以上：{ticketsData[3]}
-            </div> */}
         </div>
     )
 }
