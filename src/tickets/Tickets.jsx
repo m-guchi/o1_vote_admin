@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Typography} from '@material-ui/core'
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography} from '@material-ui/core'
 import axios from 'axios';
 
 
@@ -62,11 +62,35 @@ function Tickets () {
     return(
         <div className={classes.root}>
             <Typography variant='h5' gutterBottom>投票チケット</Typography>
-            <div>
+            <TableContainer component={Paper}>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>獲得枚数</TableCell>
+                            <TableCell>人数</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>1枚以上</TableCell>
+                            <TableCell>{ticketsData[3] + ticketsData[2] + ticketsData[1]}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>2枚以上</TableCell>
+                            <TableCell>{ticketsData[3] + ticketsData[2]}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>3枚以上</TableCell>
+                            <TableCell>{ticketsData[3]}</TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            {/* <div>
                 1枚：{ticketsData[1]}<br/>
                 2枚：{ticketsData[2]}<br />
                 3枚以上：{ticketsData[3]}
-            </div>
+            </div> */}
         </div>
     )
 }
