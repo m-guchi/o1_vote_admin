@@ -45,7 +45,7 @@ function VoteTable (props) {
                 <TableHead>
                     <TableRow>
                         <TableCell>No</TableCell>
-                        <TableCell>団体名</TableCell>
+                        <TableCell>組名</TableCell>
                         <TableCell>投票数</TableCell>
                     </TableRow>
                 </TableHead>
