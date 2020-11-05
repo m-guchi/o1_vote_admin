@@ -12,8 +12,7 @@ import Setting from './setting/Setting'
 function RoutePage () {
     return(
         <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/votes' component={Votes} />
+            <Route exact path='/' component={Votes} />
             <Route path='/tickets' component={Tickets} />
             <Route path='/groups' component={Groups} />
             <Route path='/setting' component={Setting} />

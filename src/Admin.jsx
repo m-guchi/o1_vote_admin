@@ -113,8 +113,7 @@ function Admin () {
     };
 
     const menus = [
-        { link: '', title: 'ダッシュボード', icon: <DashboardIcon /> },
-        { link: '/votes', title: '投票結果', icon: <HowToVoteIcon /> },
+        { link: '/', title: '投票結果', icon: <HowToVoteIcon /> },
         { link: '/tickets', title: '投票チケット', icon: <ConfirmationNumberIcon /> },
         { link: '/groups', title: '団体一覧', icon: <GroupIcon /> },
         { link: '/setting', title: '設定', icon: <SettingsIcon /> },
