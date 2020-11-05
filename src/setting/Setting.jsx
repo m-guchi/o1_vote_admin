@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { Button, Divider, FormControlLabel, Grid, Switch, Typography } from '@material-ui/core';
+import { Button, Divider, FormControlLabel, Grid, Switch, TextField, Typography } from '@material-ui/core';
 import axios from 'axios';
 
 import SettingDetail from './SettingDetail'
@@ -48,6 +48,10 @@ function Setting () {
     const handleRunning = () => {
         setSetting({...setting, running: !setting.running})
         setDiffSetting(setting.running == originSetting.running)
+    }
+    const handleYoutubeLink = (event) => {
+        setSetting({...setting, youtube: event.target.value })
+        setDiffSetting(event.target.value != originSetting.youtube)
     }
     const handleChangeRound = (event) => {
         setSetting({ ...setting, round: event.target.value })
@@ -98,6 +102,17 @@ function Setting () {
                     <Button variant="contained" color='primary' onClick={postSetting} disabled={!diffSetting}>
                         公開
                     </Button>
+                </Grid>
+                <Grid item xs={12}>
+                    <form noValidate autoComplete='off'>
+                        <TextField
+                            label="YouTubeリンク(youtube.com/watch?v=xxxxx)"
+                            placeholder='xxxxx'
+                            fullWidth
+                            onChange={(e) => handleYoutubeLink(e)}
+                            value={setting.youtube}
+                        />
+                    </form>
                 </Grid>
             </Grid>
             

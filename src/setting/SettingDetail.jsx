@@ -63,7 +63,7 @@ function SettingDetail (props) {
                                     inputProps={{ 'aria-label': 'primary  checkbox' }}
                                 />
                             }
-                            label="投票受付"
+                            label="投票受付(OFFの場合は集計中)"
                         />
                     </Grid>
                     :
