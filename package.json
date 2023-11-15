@@ -1,8 +1,8 @@
 {
-  "name": "finale_vote_admin",
+  "name": "o1-vote_admin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "/o1-vote/admin/",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
