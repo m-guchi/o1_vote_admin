@@ -46,7 +46,7 @@ function SettingGroups (props) {
                 <GroupCard data={zeroData} selected={props.group_id == zeroData.id} handleGroup={(id) => props.handleGroup(id)} />
             </Grid>
             {
-                props.round == "first" ?
+                props.round == 1 ?
                 Object.values(groupData).map((val) => (
                     <Grid item xs={6}>
                         <GroupCard data={val} selected={props.group_id==val.id} handleGroup={(id)=>props.handleGroup(id)}/>

@@ -6,7 +6,7 @@ import VoteTable from './VoteTable'
 
 
 function Votes () {
-    const [round, setRound] = useState('first')
+    const [round, setRound] = useState(1)
     const [voteData, setVoteData] = useState([])
     const [dataLoaded, setDataLoaded] = useState(false)
 
@@ -49,8 +49,8 @@ function Votes () {
                         textColor="primary"
                         centered
                     >
-                        <Tab value="first" label="予選" />
-                        <Tab value="final" label="決勝" />
+                        <Tab value={1} label="予選" />
+                        <Tab value={2} label="決勝" />
                     </Tabs>
                 </Paper>
                 {dataLoaded &&  <VoteTable data={roundVote(voteData, round)} />}

@@ -26,6 +26,7 @@ function Setting () {
     const fetchSetting = () => {
         axios.post(process.env.REACT_APP_API_URL + 'get_status.php')
         .then(function (response) {
+            console.log(response.data.setting)
             setOriginSetting(response.data.setting)
             setSetting(response.data.setting)
         })
@@ -54,7 +55,7 @@ function Setting () {
         setDiffSetting(event.target.value != originSetting.youtube)
     }
     const handleChangeRound = (event) => {
-        setSetting({ ...setting, round: event.target.value })
+        setSetting({ ...setting, round: Number(event.target.value) })
         setDiffSetting(event.target.value != originSetting.round)
     };
     const handleChangeVote = () => {
@@ -106,7 +107,7 @@ function Setting () {
                 <Grid item xs={12}>
                     <form noValidate autoComplete='off'>
                         <TextField
-                            label="YouTubeリンク(youtube.com/watch?v=xxxxx)"
+                            label="YouTubeリンク(youtube.com/watch?v={xxxxx})の部分を入力"
                             placeholder='xxxxx'
                             fullWidth
                             onChange={(e) => handleYoutubeLink(e)}

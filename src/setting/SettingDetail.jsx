@@ -24,8 +24,8 @@ function SettingDetail (props) {
                 <Grid item xs={12}>
                     <FormLabel>予選/決勝</FormLabel>
                     <RadioGroup name="round" value={props.setting.round} onChange={props.handleChangeRound}>
-                        <FormControlLabel value="first" control={<Radio color="primary"/>} label="予選" />
-                        <FormControlLabel value="final" control={<Radio color="primary" />} label="決勝" />
+                        <FormControlLabel value={1} control={<Radio color="primary"/>} label="予選" />
+                        <FormControlLabel value={2} control={<Radio color="primary" />} label="決勝" />
                     </RadioGroup>
                 </Grid>
                 <Grid item xs={12}>
